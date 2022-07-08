@@ -13,15 +13,19 @@ The 8-bit ALU can be constructed by cascading eight 1-bit ALU modules. The SLT o
 ### What is the combinational circuit between `set`, `overflow` and `less`?
 For example, there is a 4-bits adder：
 1. positive overflow
+
 ![](https://i.imgur.com/xzfcXqj.png)
 
 2. negative overflow
+
 ![](https://i.imgur.com/Wn0Yxlq.png)
 
 3. positive non-overflow
+
 ![](https://i.imgur.com/rpFDvey.png)
 
 4. negative non-overflow
+
 ![](https://i.imgur.com/aCHLYtw.png)
 
 
