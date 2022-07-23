@@ -23,8 +23,8 @@ parameter R = 3'b100;
 
 //FSM current state register
 always@(posedge clk or posedge reset) begin
-  if(reset) state_cs <= G;
-  else state_cs <= state_ns;
+	if(reset) state_cs <= G;
+	else state_cs <= state_ns;
 end
 
 //counter
@@ -62,30 +62,30 @@ end
 
 //output logic
 always@(*) begin
-  case(state_cs)
-    G: begin
-		Gout = 1'b1;
-		Yout = 1'b0;
-		Rout = 1'b0;
-    end
+	case(state_cs)
+		G: begin
+			Gout = 1'b1;
+			Yout = 1'b0;
+			Rout = 1'b0;
+		end
       
-    Y: begin
-		Gout = 1'b0;
-		Yout = 1'b1;
-		Rout = 1'b0;
-    end
+		Y: begin
+			Gout = 1'b0;
+			Yout = 1'b1;
+			Rout = 1'b0;
+		end
     
-    R: begin
-		Gout = 1'b0;
-		Yout = 1'b0;
-		Rout = 1'b1;
-    end
+		R: begin
+			Gout = 1'b0;
+			Yout = 1'b0;
+			Rout = 1'b1;
+		end
 	
-	default: begin
-		Gout = 1'b0;
-		Yout = 1'b0;
-		Rout = 1'b0;
-	end
-  endcase
+		default: begin
+			Gout = 1'b0;
+			Yout = 1'b0;
+			Rout = 1'b0;
+		end
+	endcase
 end
 endmodule
