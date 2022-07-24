@@ -20,9 +20,7 @@ end
 //stall counter
 always@(posedge clk or posedge reset) begin
     if(reset) stall <= 3'b0; 
-	else begin 
-		stall <= (stall)? (stall - 1) : code_len;
-	end
+	else stall <= (stall)? (stall - 1) : code_len;
 end
 //s_buf control
 integer i;
@@ -32,7 +30,7 @@ always@(posedge clk or posedge reset) begin
 		for(i=0; i<8; i=i+1) begin
 			s_buf[i + 1] <= s_buf[i];
 		end
-	s_buf[0] <= ((stall[0] && code_len) || !code_len)? chardata : s_buf[code_pos];
+	s_buf[0] <= ((stall == 3'b001 && code_len) || !code_len)? chardata : s_buf[code_pos];
 	end
 end
 
